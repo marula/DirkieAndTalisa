@@ -25,6 +25,13 @@ class GalleriesController < ApplicationController
     rescue ActiveResource::ResourceNotFound
   end
 
+  def show
+    @list = Picture.where(:gallery_id => params[:id]).pluck(:id)
+    respond_to do |format|
+      format.json
+    end
+  end
+
   def edit
     @gallery = Gallery.find(params[:id])
     @pictures = Picture.where(:gallery_id => params[:id])
@@ -51,4 +58,3 @@ class GalleriesController < ApplicationController
     end  
   end
 end
-
