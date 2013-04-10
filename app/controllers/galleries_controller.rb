@@ -58,3 +58,4 @@ class GalleriesController < ApplicationController
     end  
   end
 end
+
